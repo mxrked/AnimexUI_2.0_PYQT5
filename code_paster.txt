@@ -1,0 +1,72 @@
+        ''' FUNCTIONS '''
+        def closeInfoPopup(popup):
+
+            # Hiding the darken frame
+            self.StartWindow_DarkenFrame.setMinimumHeight(0)
+            self.StartWindow_DarkenFrame.setMaximumHeight(0)
+
+            # Closing the info dialog
+            popup.close()
+
+
+        def infoPopup():
+
+            # Display darken background
+            self.StartWindow_DarkenFrame.setMinimumHeight(810)
+            self.StartWindow_DarkenFrame.setMaximumHeight(810)
+
+            # Creating the dialog/popup
+            infoPopup = QtWidgets.QDialog()
+            infoPopup.setStyleSheet("""
+            
+                QDialog {
+                
+	                background-color: rgb(25, 25, 25);
+	                border-radius: 5px;
+                
+                }
+            
+            """)
+
+            # Settings
+            infoPopup.setWindowFlags(QtCore.Qt.FramelessWindowHint) # Hides the title bar
+            infoPopup.setFixedSize(300, 200)
+
+            # Widgets
+            infoPopupLayout = QtWidgets.QVBoxLayout()
+            infoPopupCloser = QtWidgets.QPushButton("✖", infoPopup)
+            infoPopupCloser.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+
+            infoPopupCloser.mousePressEvent = lambda event: closeInfoPopup(infoPopup)
+            infoPopupCloser.setMinimumSize(30, 30)
+            infoPopupCloser.setMaximumSize(30, 30)
+
+            infoPopupCloser.setStyleSheet("""
+            
+                QPushButton {
+                    background-color: rgb(255, 66, 69);
+                    color: white;
+                    border: none;
+                }
+            
+            """)
+
+            infoPopupText = QtWidgets.QLabel("By Parker - w/ PyQt5", infoPopup)
+            infoPopupText.setStyleSheet("""
+            
+                QLabel {
+                    padding-bottom: 45px;
+                    color: white;
+                    font-size: 15px;
+                }
+            
+            """)
+
+            infoPopupLayout.addWidget(infoPopupCloser, alignment=QtCore.Qt.AlignmentFlag.AlignCenter)
+            infoPopupLayout.addWidget(infoPopupText, alignment=QtCore.Qt.AlignmentFlag.AlignCenter)
+
+
+
+            infoPopup.setLayout(infoPopupLayout)
+
+            infoPopup.exec_()
