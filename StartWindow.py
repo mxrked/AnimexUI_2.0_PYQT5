@@ -4,6 +4,7 @@ from assets.medias.qrcs import CLUSTER_1, logo
 from assets.files._backUpFiles import backupAllFiles
 
 import sys, os
+import CreateAccountWindow
 
 class Ui_StartWindow(object):
     def setupUi(self, StartWindow):
@@ -88,6 +89,19 @@ class Ui_StartWindow(object):
             infoPopup.setLayout(infoPopupLayout)
 
             infoPopup.exec_()
+
+        def enterCreateAccountWindow():
+
+            # Showing new window
+            self.ui = CreateAccountWindow.Ui_CreateAccountWindow()
+            self.window = QtWidgets.QMainWindow()
+            self.ui.setupUi(self.window)
+            self.window.show()
+
+            # Hiding current window
+            StartWindow.hide()
+
+            print("Routing to CreateAccountWindow!")
 
         StartWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint) # Hides the title bar
         StartWindow.setObjectName("StartWindow")
@@ -195,6 +209,7 @@ class Ui_StartWindow(object):
         self.StartWindow_BottomFrameInnerHL.setContentsMargins(0, 0, 0, 0)
         self.StartWindow_BottomFrameInnerHL.setObjectName("StartWindow_BottomFrameInnerHL")
         self.StartWindow_CreateBtn = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.StartWindow_CreateBtn.clicked.connect(enterCreateAccountWindow)
         self.StartWindow_CreateBtn.setMinimumSize(QtCore.QSize(190, 40))
         self.StartWindow_CreateBtn.setMaximumSize(QtCore.QSize(140, 16777215))
         font = QtGui.QFont()
