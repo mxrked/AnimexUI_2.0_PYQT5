@@ -1,6 +1,6 @@
 '''
 
-    This will hold all the classes and objects
+    This will hold all the classes for this project
 
 '''
 
@@ -28,4 +28,26 @@ class Account:
 
     def getPassword(self):
         return self._password
+
+class Series:
+
+    def __init__(self, name, desc, img):
+        self._name = name
+        self._desc = desc
+        self._img = img
+
+    def setName(self, name):
+        self._name = name
+    def setDesc(self, desc):
+        self._desc = desc
+    def setImg(self, img):
+        self._img = img
+
+    def getName(self):
+        return self._name
+    def getDesc(self):
+        return self._desc
+    def getImg(self):
+        return self._img
+
 

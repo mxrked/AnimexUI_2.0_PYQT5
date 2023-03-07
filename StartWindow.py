@@ -1,10 +1,13 @@
+import argparse
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from assets.medias.qrcs import CLUSTER_1, logo
 from assets.files._backUpFiles import backupAllFiles
+from assets.files.ARRAYS import accounts
+from assets.files.CLASSES import Account
 
-import sys, os
-import CreateAccountWindow
+import sys, os, csv
+import CreateAccountWindow, LoginAccountWindow
 
 class Ui_StartWindow(object):
     def setupUi(self, StartWindow):
@@ -102,6 +105,53 @@ class Ui_StartWindow(object):
             StartWindow.hide()
 
             print("Routing to CreateAccountWindow!")
+
+        def enterLoginAccountWindow():
+
+            # Showing new window
+            self.ui = LoginAccountWindow.Ui_LoginAccountWindow()
+            self.window = QtWidgets.QMainWindow()
+            self.ui.setupUi(self.window)
+            self.window.show()
+
+            # Hiding current window
+            StartWindow.hide()
+
+            print("Routing to LoginAccountWindow!")
+
+        # Old Code
+        # def appendCurrentAccountsToFile():
+        #
+        #     file = open("_userAccounts.txt", 'a')
+        #
+        #     if len(accounts) > 0:
+        #
+        #         for account in accounts:
+        #
+        #             file.write(account.getUsername() + "," + account.getEmail() + "," + account.getPassword() + "\n")
+        #
+        # def readTextFileAndAppendToAccounts():
+        #
+        #     fileLines = open("_userAccounts.txt").readlines()
+        #
+        #     for line in fileLines:
+        #
+        #         lineRow = line.split(",") # Indicates an account based on the a comma
+        #
+        #         username, email, password = [line.strip() for line in lineRow]
+        #
+        #         account = Account(username, email, password)
+        #
+        #         accounts.append(account)
+        #
+        #
+        #
+        #
+        #
+        #
+        # readTextFileAndAppendToAccounts()
+        # appendCurrentAccountsToFile()
+
 
         StartWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint) # Hides the title bar
         StartWindow.setObjectName("StartWindow")
@@ -230,6 +280,7 @@ class Ui_StartWindow(object):
         self.StartWindow_CreateBtn.setObjectName("StartWindow_CreateBtn")
         self.StartWindow_BottomFrameInnerHL.addWidget(self.StartWindow_CreateBtn)
         self.StartWindow_LoginBtn = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.StartWindow_LoginBtn.clicked.connect(enterLoginAccountWindow)
         self.StartWindow_LoginBtn.setMinimumSize(QtCore.QSize(230, 40))
         self.StartWindow_LoginBtn.setMaximumSize(QtCore.QSize(170, 16777215))
         font = QtGui.QFont()
@@ -276,6 +327,7 @@ class Ui_StartWindow(object):
         self.StartWindow_DarkenFrame.setObjectName("StartWindow_DarkenFrame")
         StartWindow.setCentralWidget(self.centralwidget)
 
+
         self.retranslateUi(StartWindow)
         QtCore.QMetaObject.connectSlotsByName(StartWindow)
 
@@ -296,10 +348,14 @@ if __name__ == "__main__":
     StartWindow = QtWidgets.QMainWindow()
     ui = Ui_StartWindow()
     ui.setupUi(StartWindow)
+
+
+
+
     StartWindow.show()
 
     # Backs up the files after exiting program
-    # backupAllFiles()
+    backupAllFiles()
 
 
     sys.exit(app.exec_())
