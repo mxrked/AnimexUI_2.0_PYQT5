@@ -3,10 +3,10 @@ import argparse
 from PyQt5 import QtCore, QtGui, QtWidgets
 from assets.medias.qrcs import CLUSTER_1, logo
 from assets.files._backUpFiles import backupAllFiles
-from assets.files.ARRAYS import accounts
+from assets.files.ARRAYS import accounts, finalAccountInfo
 from assets.files.CLASSES import Account
 
-import sys, os, csv
+import sys, os, csv, shutil
 import CreateAccountWindow, LoginAccountWindow
 
 class Ui_StartWindow(object):
@@ -119,38 +119,45 @@ class Ui_StartWindow(object):
 
             print("Routing to LoginAccountWindow!")
 
-        # Old Code
-        # def appendCurrentAccountsToFile():
-        #
-        #     file = open("_userAccounts.txt", 'a')
-        #
-        #     if len(accounts) > 0:
-        #
-        #         for account in accounts:
-        #
-        #             file.write(account.getUsername() + "," + account.getEmail() + "," + account.getPassword() + "\n")
-        #
-        # def readTextFileAndAppendToAccounts():
-        #
-        #     fileLines = open("_userAccounts.txt").readlines()
-        #
-        #     for line in fileLines:
-        #
-        #         lineRow = line.split(",") # Indicates an account based on the a comma
-        #
-        #         username, email, password = [line.strip() for line in lineRow]
-        #
-        #         account = Account(username, email, password)
-        #
-        #         accounts.append(account)
-        #
-        #
-        #
-        #
-        #
-        #
-        # readTextFileAndAppendToAccounts()
-        # appendCurrentAccountsToFile()
+        def readAllFilesFromUserAccounts():
+
+                # THIS IS USED TO MAKE THE PATH FOR THE dist FOLDER .exe file work with userAccounts
+                if getattr(sys, "frozen", False):
+                    app_path = os.path.dirname(sys.executable)
+                else:
+                    app_path = os.path.dirname(os.path.abspath(__file__))
+
+
+                path = os.getcwd() + "/userAccounts" # Gets current project path and adds userAccounts sub-dir
+                os.chdir(app_path + "/userAccounts")
+
+                # Adding the account on a userAccounts text file to accounts array
+                for file in os.listdir():
+
+                    # This will delete the None.txt files as these keep showing up for some reason...
+                    if file.startswith("None"):
+                        os.remove(file)
+
+                    if not file.startswith("None"):
+                        if file.endswith(".txt"):
+
+                            file_path = f"{path}\{file}"
+
+
+
+                            with open(file_path, "r") as f:
+
+                                userAccount = Account(f.readline().rstrip('\n'), f.readline().rstrip('\n'), f.readline().rstrip('\n'))
+                                accounts.append(userAccount)
+
+
+
+
+
+                os.chdir(app_path) # Starts in the project root
+
+        readAllFilesFromUserAccounts()
+
 
 
         StartWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint) # Hides the title bar
@@ -355,7 +362,7 @@ if __name__ == "__main__":
     StartWindow.show()
 
     # Backs up the files after exiting program
-    backupAllFiles()
+    # backupAllFiles()
 
 
     sys.exit(app.exec_())

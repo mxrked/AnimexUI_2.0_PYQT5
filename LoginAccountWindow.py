@@ -3,10 +3,10 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from assets.medias.qrcs import deku_BG
-from assets.files.ARRAYS import accounts, currentUser
+from assets.files.ARRAYS import accounts, currentUser, finalAccountInfo
 from assets.files._backUpFiles import backupAllFiles
 
-import sys
+import sys, os, csv
 import StartWindow, BrowseWindow
 
 class Ui_LoginAccountWindow(object):
@@ -86,6 +86,11 @@ class Ui_LoginAccountWindow(object):
 
             # Checking if inputs match one of the accounts
             for account in accounts:
+
+                # if account.getUsername() == usernameText:
+                #
+                #     enterBrowseWindow()
+
 
                 # Checking for invalids
                 if account.getUsername() != usernameText:
@@ -210,6 +215,7 @@ class Ui_LoginAccountWindow(object):
             # Routes user after login successfully!
             if len(currentUser) > 0:
                 enterBrowseWindow()
+
 
         LoginAccountWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint) # Hides the title bar
         LoginAccountWindow.setObjectName("LoginAccountWindow")
@@ -478,6 +484,6 @@ if __name__ == "__main__":
     # LoginAccountWindow.show()
 
     print("You cannot run the app from this window.. Run StartWindow.py!")
-    backupAllFiles()
+    # backupAllFiles()
 
     sys.exit()

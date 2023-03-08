@@ -6,7 +6,7 @@ from assets.files.CLASSES import Account
 from assets.files.ARRAYS import *
 from assets.files._backUpFiles import backupAllFiles
 
-import sys
+import sys, os, csv
 import StartWindow
 
 
@@ -94,8 +94,14 @@ class Ui_CreateAccountWindow(object):
             # Creating accounts
             if len(accounts) == 0:
 
+                # Variables that remove the space/white space of the values
+                cleanUsernameText = usernameText.replace(" ", "")
+                cleanEmailText = emailText.replace(" ", "")
+                cleanPasswordText = passwordText.replace(" ", "")
+                cleanConfirmPasswordText = confirmPasswordText.replace(" ", "")
+
                 # If username is valid
-                if usernameText != "" and usernameText != None:
+                if cleanUsernameText != "":
 
                     print("Valid Username.")
                     validUsername.clear()
@@ -113,7 +119,7 @@ class Ui_CreateAccountWindow(object):
                 "}")
 
                 # If username is invalid
-                if usernameText == "" or usernameText == None:
+                if cleanUsernameText == "":
 
                     print("Invalid Username..")
                     validUsername.clear()
@@ -132,7 +138,7 @@ class Ui_CreateAccountWindow(object):
 
                 # If email is valid
                 emailRegex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
-                if re.fullmatch(emailRegex, emailText):
+                if re.fullmatch(emailRegex, cleanEmailText):
 
                     print("Valid Email.")
                     validEmail.clear()
@@ -150,7 +156,7 @@ class Ui_CreateAccountWindow(object):
                 "}")
 
                 # If email is invalid
-                if not re.fullmatch(emailRegex, emailText):
+                if not re.fullmatch(emailRegex, cleanEmailText):
 
                     print("Invalid Email..")
                     validEmail.clear()
@@ -168,10 +174,10 @@ class Ui_CreateAccountWindow(object):
                 "}")
 
                 # If passwords are valid
-                if passwordText != "" and passwordText != None and confirmPasswordText != "" and confirmPasswordText != None:
+                if cleanPasswordText != "" and cleanConfirmPasswordText != "":
 
                     # Checking if passwords match
-                    if passwordText == confirmPasswordText:
+                    if cleanPasswordText == cleanConfirmPasswordText:
 
                         print("The passwords are the same.")
                         validPassword.clear()
@@ -226,7 +232,7 @@ class Ui_CreateAccountWindow(object):
                     "}")
 
                 # If passwords are invalid
-                if passwordText == "" or passwordText == None or confirmPasswordText == "" or confirmPasswordText == None:
+                if cleanPasswordText == "" or cleanConfirmPasswordText == "":
 
                     print("Invalid Passwords..")
                     validPassword.clear()
@@ -254,43 +260,77 @@ class Ui_CreateAccountWindow(object):
                 "}")
 
                 # Creating account when all is valid
-                if validUsername[0] == True:
-                    if validEmail[0] == True:
-                        if validPassword[0] == True:
+                # if validUsername[0] == True:
+                #     if validEmail[0] == True:
+                #         if validPassword[0] == True:
+                #
+                #             # Appending to object
+                #             newAccount.setUsername(cleanUsernameText)
+                #             newAccount.setEmail(cleanEmailText)
+                #             newAccount.setPassword(cleanPasswordText)
+                #
+                #             # Clearing inputs
+                #             self.CreateAccountWindow_UsernameLineEdit.setText("")
+                #             self.CreateAccountWindow_EmailAddressLineEdit.setText("")
+                #             self.CreateAccountWindow_PasswordLineEdit.setText("")
+                #             self.CreateAccountWindow_ConfirmPasswordLineEdit.setText("")
+                #
+                #             # Reseting valid arrays
+                #             validUsername.clear()
+                #             validEmail.clear()
+                #             validPassword.clear()
+                #
+                #             validUsername.append(False)
+                #             validEmail.append(False)
+                #             validPassword.append(False)
+                #
+                #             # Adding account to accounts
+                #             accounts.append(newAccount)
+                #
+                #             # Routing user back to StartWindow
+                #             enterStartWindow()
 
-                            # Appending to object
-                            newAccount.setUsername(usernameText)
-                            newAccount.setEmail(emailText)
-                            newAccount.setPassword(passwordText)
+                if validUsername[0] == True and validEmail[0] == True and validPassword[0] == True:
 
-                            # Clearing inputs
-                            self.CreateAccountWindow_UsernameLineEdit.setText("")
-                            self.CreateAccountWindow_EmailAddressLineEdit.setText("")
-                            self.CreateAccountWindow_PasswordLineEdit.setText("")
-                            self.CreateAccountWindow_ConfirmPasswordLineEdit.setText("")
+                        # Appending to object
+                        newAccount.setUsername(cleanUsernameText)
+                        newAccount.setEmail(cleanEmailText)
+                        newAccount.setPassword(cleanPasswordText)
 
-                            # Reseting valid arrays
-                            validUsername.clear()
-                            validEmail.clear()
-                            validPassword.clear()
+                         # Clearing inputs
+                        self.CreateAccountWindow_UsernameLineEdit.setText("")
+                        self.CreateAccountWindow_EmailAddressLineEdit.setText("")
+                        self.CreateAccountWindow_PasswordLineEdit.setText("")
+                        self.CreateAccountWindow_ConfirmPasswordLineEdit.setText("")
 
-                            validUsername.append(False)
-                            validEmail.append(False)
-                            validPassword.append(False)
+                        # Reseting valid arrays
+                        validUsername.clear()
+                        validEmail.clear()
+                        validPassword.clear()
 
-                            # Adding account to accounts
-                            accounts.append(newAccount)
+                        validUsername.append(False)
+                        validEmail.append(False)
+                        validPassword.append(False)
 
-                            # Routing user back to StartWindow
-                            enterStartWindow()
+                        # Adding account to accounts
+                        accounts.append(newAccount)
+
+                        # Routing user back to StartWindow
+                        enterStartWindow()
 
             if len(accounts) >= 1:
+
+                # Variables that remove the space/white space of the values
+                cleanUsernameText = usernameText.replace(" ", "")
+                cleanEmailText = emailText.replace(" ", "")
+                cleanPasswordText = passwordText.replace(" ", "")
+                cleanConfirmPasswordText = confirmPasswordText.replace(" ", "")
 
                 for account in accounts: # Checking for if any of the other accounts match the one being created
 
                     # If username is valid
-                    if account.getUsername() != usernameText:
-                        if usernameText != "" and usernameText != None:
+                    if account.getUsername() != cleanUsernameText:
+                        if cleanUsernameText != "":
 
                             print("Valid Username.")
                             validUsername.clear()
@@ -312,7 +352,7 @@ class Ui_CreateAccountWindow(object):
                         validUsername.append(False) # Marking as invalid
 
                     # If username is invalid
-                    if usernameText == "" or usernameText == None:
+                    if cleanUsernameText == "":
 
                         print("Invalid Username..")
                         validUsername.clear()
@@ -331,8 +371,8 @@ class Ui_CreateAccountWindow(object):
 
                     # If email is valid
                     emailRegex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,7}\b'
-                    if account.getEmail() != emailText:
-                        if re.fullmatch(emailRegex, emailText):
+                    if account.getEmail() != cleanEmailText:
+                        if re.fullmatch(emailRegex, cleanEmailText):
 
                             print("Valid Email.")
                             validEmail.clear()
@@ -365,7 +405,7 @@ class Ui_CreateAccountWindow(object):
                         validEmail.append(False) # Marking as invalid
 
                     # If email is invalid
-                    if not re.fullmatch(emailRegex, emailText):
+                    if not re.fullmatch(emailRegex, cleanEmailText):
 
                         print("Invalid Email..")
                         validEmail.clear()
@@ -383,10 +423,10 @@ class Ui_CreateAccountWindow(object):
                     "}")
 
                     # If passwords are valid
-                    if passwordText != "" and passwordText != None and confirmPasswordText != "" and confirmPasswordText != None:
+                    if cleanPasswordText != "" and cleanConfirmPasswordText != "":
 
                         # Checking if passwords match
-                        if passwordText == confirmPasswordText:
+                        if cleanPasswordText == cleanConfirmPasswordText:
 
                             print("The passwords are the same.")
                             validPassword.clear()
@@ -441,7 +481,7 @@ class Ui_CreateAccountWindow(object):
                     "}")
 
                     # If passwords are invalid
-                    if passwordText == "" or passwordText == None or confirmPasswordText == "" or confirmPasswordText == None:
+                    if cleanPasswordText == "" or cleanConfirmPasswordText == "":
 
                         print("Invalid Passwords..")
                         validPassword.clear()
@@ -460,14 +500,42 @@ class Ui_CreateAccountWindow(object):
                     "}")
 
                 # Creating account when all is valid
-                if validUsername[0] == True:
-                    if validEmail[0] == True:
-                        if validPassword[0] == True:
+                # if validUsername[0] == True:
+                #     if validEmail[0] == True:
+                #         if validPassword[0] == True:
+                #
+                #             # Appending to object
+                #             newAccount.setUsername(cleanUsernameText)
+                #             newAccount.setEmail(cleanEmailText)
+                #             newAccount.setPassword(cleanPasswordText)
+                #
+                #             # Clearing inputs
+                #             self.CreateAccountWindow_UsernameLineEdit.setText("")
+                #             self.CreateAccountWindow_EmailAddressLineEdit.setText("")
+                #             self.CreateAccountWindow_PasswordLineEdit.setText("")
+                #             self.CreateAccountWindow_ConfirmPasswordLineEdit.setText("")
+                #
+                #             # Reseting valid arrays
+                #             validUsername.clear()
+                #             validEmail.clear()
+                #             validPassword.clear()
+                #
+                #             validUsername.append(False)
+                #             validEmail.append(False)
+                #             validPassword.append(False)
+                #
+                #             # Adding account to accounts
+                #             accounts.append(newAccount)
+                #
+                #
+                #             # Routing user back to StartWindow
+                #             enterStartWindow()
 
+                if validUsername[0] == True and validEmail[0] == True and validPassword[0] == True:
                             # Appending to object
-                            newAccount.setUsername(usernameText)
-                            newAccount.setEmail(emailText)
-                            newAccount.setPassword(passwordText)
+                            newAccount.setUsername(cleanUsernameText)
+                            newAccount.setEmail(cleanEmailText)
+                            newAccount.setPassword(cleanPasswordText)
 
                             # Clearing inputs
                             self.CreateAccountWindow_UsernameLineEdit.setText("")
@@ -491,36 +559,13 @@ class Ui_CreateAccountWindow(object):
                             # Routing user back to StartWindow
                             enterStartWindow()
 
-                # # Appending to object
-                # newAccount.setUsername(usernameText)
-                # newAccount.setEmail(emailText)
-                # newAccount.setPassword(passwordText)
-                #
-                # # Clearing inputs
-                # self.CreateAccountWindow_UsernameLineEdit.setText("")
-                # self.CreateAccountWindow_EmailAddressLineEdit.setText("")
-                # self.CreateAccountWindow_PasswordLineEdit.setText("")
-                # self.CreateAccountWindow_ConfirmPasswordLineEdit.setText("")
-                #
-                # # Reseting valid arrays
-                # validUsername.clear()
-                # validEmail.clear()
-                # validPassword.clear()
-                #
-                # validUsername.append(False)
-                # validEmail.append(False)
-                # validPassword.append(False)
-                #
-                # # Adding account to accounts
-                # accounts.append(newAccount)
-                #
-                # # Routing user back to StartWindow
-                # enterStartWindow()
 
 
-        for account in accounts:
-            print(account.getUsername() + "," + account.getEmail() + "," + account.getPassword())
+            # Creating a file for that user
+            userAccountFile = open("userAccounts/" + str(newAccount.getUsername()) + ".txt", "w")
 
+            # Writing that accounts info to the file
+            userAccountFile.write(str(newAccount.getUsername() ) + "\n" + str(newAccount.getEmail()) + "\n" + str(newAccount.getPassword()))
 
         CreateAccountWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint) # Hides the title bar
         CreateAccountWindow.setObjectName("CreateAccountWindow")
@@ -821,6 +866,6 @@ if __name__ == "__main__":
     # CreateAccountWindow.show()
 
     print("You cannot run the app from this window.. Run StartWindow.py!")
-    backupAllFiles()
+    # backupAllFiles()
 
     sys.exit()
