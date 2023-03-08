@@ -7,6 +7,7 @@
 
 accounts = []
 currentUser = []
+finalAccountInfo = []
 
 validUsername = [False]
 validEmail = [False]
