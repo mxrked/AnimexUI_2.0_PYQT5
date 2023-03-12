@@ -4,6 +4,7 @@
 
 '''
 
+from assets.files.OBJECTS import *
 
 accounts = []
 currentUser = []
@@ -12,3 +13,5 @@ finalAccountInfo = []
 validUsername = [False]
 validEmail = [False]
 validPassword = [False]
+
+allSeries = [jojo, jojo]
