@@ -38,6 +38,7 @@ class Ui_BrowseWindow(object):
             if len(currentUser) == 0:
                 enterStartWindow()
 
+        BrowseWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint) # Hides the title bar
         BrowseWindow.setObjectName("BrowseWindow")
         BrowseWindow.resize(900, 800)
         BrowseWindow.setMinimumSize(QtCore.QSize(900, 800))
