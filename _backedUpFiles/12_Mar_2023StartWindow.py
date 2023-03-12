@@ -362,7 +362,7 @@ if __name__ == "__main__":
     StartWindow.show()
 
     # Backs up the files after exiting program
-    # backupAllFiles()
+    backupAllFiles()
 
 
     sys.exit(app.exec_())
