@@ -31,8 +31,8 @@ def backupFile(src_file_name, dst_file_name=None, src_dir='', dst_dir=''):
 def backupAllFiles():
     fileLoc = "_backedUpFiles/" # Where to place the files
 
-    pyFiles = ["StartWindow.py", "LoginAccountWindow.py", "CreateAccountWindow.py"]
-    uiFiles = ["StartWindow.ui", "LoginAccountWindow.ui", "CreateAccountWindow.ui"]
+    pyFiles = ["StartWindow.py", "LoginAccountWindow.py", "CreateAccountWindow.py", "BrowseWindow.py"]
+    uiFiles = ["StartWindow.ui", "LoginAccountWindow.ui", "CreateAccountWindow.ui", "BrowseWindow.ui"]
 
 
     for file in pyFiles:
