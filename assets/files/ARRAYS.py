@@ -14,4 +14,4 @@ validUsername = [False]
 validEmail = [False]
 validPassword = [False]
 
-allSeries = [jojo, jojo]
+allSeries = []
