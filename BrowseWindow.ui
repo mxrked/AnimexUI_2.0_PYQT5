@@ -202,7 +202,7 @@ QPushButton::hover {
       <x>50</x>
       <y>320</y>
       <width>801</width>
-      <height>451</height>
+      <height>431</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -279,6 +279,577 @@ QScrollBar::sub-line:vertical {
         <property name="frameShadow">
          <enum>QFrame::Raised</enum>
         </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <layout class="QGridLayout" name="BrowseWindow_SeriesHolderFrameLayout">
+           <item row="1" column="0">
+            <layout class="QHBoxLayout" name="BrowseWindow_Row2">
+             <property name="spacing">
+              <number>0</number>
+             </property>
+             <item>
+              <widget class="QWidget" name="BrowseWindow_Series3" native="true">
+               <property name="styleSheet">
+                <string notr="true">QWidget {
+	border: 2px solid rgba(214, 214, 214, 0.1);
+	background-color: rgba(214, 214, 214, 0.1);
+}</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_10">
+                <item>
+                 <layout class="QHBoxLayout" name="BrowseWindow_Series3Layout">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="BrowseWindow_Series3ImgLabel">
+                    <property name="minimumSize">
+                     <size>
+                      <width>12</width>
+                      <height>200</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>200</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	padding-left: 5px;
+	padding-right: 5px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="assets/medias/qrcs/mob_BG.qrc">:/newPrefix/imgs/series/mob.jpg</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="BrowseWindow_Series3CntFrame">
+                    <property name="styleSheet">
+                     <string notr="true">QFrame {
+	border: none;
+}</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_4">
+                     <item>
+                      <layout class="QVBoxLayout" name="BrowseWindow_Series3CntFrameLayout">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="BrowseWindow_Series3NameLabel">
+                         <property name="styleSheet">
+                          <string notr="true">QLabel {
+	border: none;
+	padding-left: 10px;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="BrowseWindow_Series3DescLabel">
+                         <property name="styleSheet">
+                          <string notr="true">QLabel {
+	border: none;
+	padding-left: 10px;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="BrowseWindow_Series3TogglePushBtn">
+                         <property name="maximumSize">
+                          <size>
+                           <width>200</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Poppins</family>
+                           <pointsize>10</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton {
+	background-color:  rgb(255, 66, 69);
+	color: white;
+	padding-top: 3px;
+}
+
+QPushButton::hover {
+	background-color: rgb(255, 10, 22)
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>START VIEWING</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="BrowseWindow_Series4" native="true">
+               <property name="styleSheet">
+                <string notr="true">QWidget {
+	border: 2px solid rgba(214, 214, 214, 0.1);
+	background-color: rgba(214, 214, 214, 0.1);
+}</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_9">
+                <item>
+                 <layout class="QHBoxLayout" name="BrowseWindow_Series4Layout">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="BrowseWindow_Series4ImgLabel">
+                    <property name="minimumSize">
+                     <size>
+                      <width>12</width>
+                      <height>200</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>200</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	padding-left: 5px;
+	padding-right: 5px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="assets/medias/qrcs/tye_BG.qrc">:/newPrefix/imgs/series/tye.jpg</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="BrowseWindow_Series4CntFrame">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_2">
+                     <item>
+                      <layout class="QVBoxLayout" name="BrowseWindow_Series4CntFrameLayout">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="BrowseWindow_Series4NameLabel">
+                         <property name="styleSheet">
+                          <string notr="true">QLabel {
+	border: none;
+	padding-left: 10px;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="BrowseWindow_Series4DescLabel">
+                         <property name="styleSheet">
+                          <string notr="true">QLabel {
+	border: none;
+	padding-left: 10px;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="BrowseWindow_Series4TogglePushBtn">
+                         <property name="maximumSize">
+                          <size>
+                           <width>200</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Poppins</family>
+                           <pointsize>10</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton {
+	background-color:  rgb(255, 66, 69);
+	color: white;
+	padding-top: 3px;
+}
+
+QPushButton::hover {
+	background-color: rgb(255, 10, 22)
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>START VIEWING</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="0" column="0">
+            <layout class="QHBoxLayout" name="BrowseWindow_Row1">
+             <item>
+              <widget class="QWidget" name="BrowseWindow_Series1" native="true">
+               <property name="styleSheet">
+                <string notr="true">QWidget {
+	border: 2px solid rgba(214, 214, 214, 0.1);
+	background-color: rgba(214, 214, 214, 0.1);
+}</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <layout class="QHBoxLayout" name="BrowseWindow_Series1Layout">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="BrowseWindow_Series1ImgLabel">
+                    <property name="minimumSize">
+                     <size>
+                      <width>12</width>
+                      <height>200</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>200</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	padding-left: 5px;
+	padding-right: 5px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="assets/medias/qrcs/jojo_BG.qrc">:/newPrefix/imgs/series/jojo.jpg</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="BrowseWindow_Series1CntFrame">
+                    <property name="styleSheet">
+                     <string notr="true">QFrame {
+	text-align: center;
+}</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_4">
+                     <item>
+                      <layout class="QVBoxLayout" name="BrowseWindow_Series1CntFrameLayout">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="BrowseWindow_Series1NameLabel">
+                         <property name="styleSheet">
+                          <string notr="true">QLabel {
+	border: none;
+	padding-left: 10px;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="BrowseWindow_Series1DescLabel">
+                         <property name="styleSheet">
+                          <string notr="true">QLabel {
+	border: none;
+	padding-left: 10px;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="BrowseWindow_Series1TogglePushBtn">
+                         <property name="maximumSize">
+                          <size>
+                           <width>200</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Poppins</family>
+                           <pointsize>10</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton {
+	background-color:  rgb(255, 66, 69);
+	color: white;
+	padding-top: 3px;
+}
+
+QPushButton::hover {
+	background-color: rgb(255, 10, 22)
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>START VIEWING</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QWidget" name="BrowseWindow_Series2" native="true">
+               <property name="styleSheet">
+                <string notr="true">QWidget {
+	border: 2px solid rgba(214, 214, 214, 0.1);
+	background-color: rgba(214, 214, 214, 0.1);
+}</string>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout_6">
+                <item>
+                 <layout class="QHBoxLayout" name="BrowseWindow_Series2Layout">
+                  <property name="spacing">
+                   <number>0</number>
+                  </property>
+                  <item>
+                   <widget class="QLabel" name="BrowseWindow_Series2ImgLabel">
+                    <property name="minimumSize">
+                     <size>
+                      <width>12</width>
+                      <height>200</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>150</width>
+                      <height>200</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QLabel {
+	padding-left: 5px;
+	padding-right: 5px;
+}</string>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap resource="assets/medias/qrcs/mha_BG.qrc">:/newPrefix/imgs/series/mha.jpg</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QFrame" name="BrowseWindow_Series2CntFrame">
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_5">
+                     <item>
+                      <layout class="QVBoxLayout" name="BrowseWindow_Series2CntFrameLayout">
+                       <property name="spacing">
+                        <number>0</number>
+                       </property>
+                       <item>
+                        <widget class="QLabel" name="BrowseWindow_Series2NameLabel">
+                         <property name="styleSheet">
+                          <string notr="true">QLabel {
+	border: none;
+	padding-left: 10px;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QLabel" name="BrowseWindow_Series2DescLabel">
+                         <property name="styleSheet">
+                          <string notr="true">QLabel {
+	border: none;
+	padding-left: 10px;
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>TextLabel</string>
+                         </property>
+                         <property name="alignment">
+                          <set>Qt::AlignCenter</set>
+                         </property>
+                        </widget>
+                       </item>
+                       <item>
+                        <widget class="QPushButton" name="BrowseWindow_Series2TogglePushBtn">
+                         <property name="maximumSize">
+                          <size>
+                           <width>200</width>
+                           <height>40</height>
+                          </size>
+                         </property>
+                         <property name="font">
+                          <font>
+                           <family>Poppins</family>
+                           <pointsize>10</pointsize>
+                           <weight>75</weight>
+                           <bold>true</bold>
+                          </font>
+                         </property>
+                         <property name="cursor">
+                          <cursorShape>PointingHandCursor</cursorShape>
+                         </property>
+                         <property name="styleSheet">
+                          <string notr="true">QPushButton {
+	background-color:  rgb(255, 66, 69);
+	color: white;
+	padding-top: 3px;
+}
+
+QPushButton::hover {
+	background-color: rgb(255, 10, 22)
+}</string>
+                         </property>
+                         <property name="text">
+                          <string>START VIEWING</string>
+                         </property>
+                        </widget>
+                       </item>
+                      </layout>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </widget>
       </item>
      </layout>
@@ -288,6 +859,10 @@ QScrollBar::sub-line:vertical {
  </widget>
  <resources>
   <include location="assets/medias/qrcs/logo.qrc"/>
+  <include location="assets/medias/qrcs/tye_BG.qrc"/>
+  <include location="assets/medias/qrcs/mob_BG.qrc"/>
+  <include location="assets/medias/qrcs/mha_BG.qrc"/>
+  <include location="assets/medias/qrcs/jojo_BG.qrc"/>
  </resources>
  <connections/>
 </ui>
